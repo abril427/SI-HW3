@@ -20,11 +20,11 @@ import re
 
 ## Write code to define your parse_counted_words function here.
 
-
 def parse_counted_words(count_string):
-    lst_counts_words = re.findall(("\b[^0-9]+ [_0-9][A-z]*") ,count_string)
+    lst_counts_words = re.findall("([0-9]+)\s(.[a-zA-Z]*)" ,count_string)
     if len(lst_counts_words) > 0:
-        return lst_counts_words[-1]
+        if (' ' not in lst_counts_words[-1]): #check for optional non alpha wildcard passing of " " (space) character
+            return lst_counts_words[-1]
     else: 
         return None
 
