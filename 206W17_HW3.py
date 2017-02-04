@@ -42,7 +42,22 @@ def parse_counted_words(count_string):
 
 ## (d) Write Python code to determine how many of these paths describe a Microsoft file (a file that EITHER ends with .docx OR .xlsx, but nothing else counts) where the file name ends in a digit. Save that total in the variable microsoft_files_num.
 
+file_paths_num = 0
+full_paths_num = 0
+python_course_paths = 0
+microsoft_files_num = 0
 
+paths = open('computer_paths.txt')
+for line in paths: 
+    line = line.rstrip()
+    if re.match("([a-zA-Z0-9]+.[a-zA-Z0-9]+[.a-zA-Z]*)", line):
+        file_paths_num += 1
+
+    # line = line.rstrip()
+    if re.match("(^[/$ \~].*)", line):
+        print (re.findall("(^[/~].*)", line))
+    # print(len(full_path))
+        full_paths_num+= 1
 
 
 ## We have provided unit tests in this file. To earn the full 500 points, you'll need to pass all of the tests and will need to have followed the instructions.
