@@ -21,6 +21,13 @@ import re
 ## Write code to define your parse_counted_words function here.
 
 
+def parse_counted_words(count_string):
+    lst_counts_words = re.findall(("\b[^0-9]+ [_0-9][A-z]*") ,count_string)
+    if len(lst_counts_words) > 0:
+        return lst_counts_words[-1]
+    else: 
+        return None
+
 
 
 ## PART 2: 200 points
@@ -34,8 +41,6 @@ import re
 ## (c) Write Python code to determine how many of these paths describe a Python file saved inside a folder called SI206. Save that number in the variable python_course_paths.
 
 ## (d) Write Python code to determine how many of these paths describe a Microsoft file (a file that EITHER ends with .docx OR .xlsx, but nothing else counts) where the file name ends in a digit. Save that total in the variable microsoft_files_num.
-
-
 
 
 
