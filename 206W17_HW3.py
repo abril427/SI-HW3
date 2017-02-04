@@ -47,7 +47,6 @@ full_paths_num = 0
 python_course_paths = 0
 microsoft_files_num = 0
 documents=[]
-course_paths = []
 python_courses = []
 microsoftdocs = []
 
@@ -58,11 +57,6 @@ for line in paths:
         full_paths_num+= 1
 
 
-    if re.findall("(SI206/.+)", line):
-        course_paths.append(line)
-        print (course_paths)
-
-
     if re.findall("/[a-z0-9]+.[a-z]+\d\.*xlsx|.*\.docx", line):  
         microsoftdocs.append(line)
 
@@ -70,14 +64,13 @@ for line in paths:
     if re.findall("/[a-z0-9]+.[a-z0-9]+\.+", line):  
         documents.append(line)
 
+
+    if re.findall("SI206/[a-z0-9]+.[a-z0-9]+\.*py", line): 
+        python_courses.append(line)
+
+
 file_paths_num = len(documents)
 microsoft_files_num = len(microsoftdocs)
-
-for sifile in course_paths:
-    if re.findall("/[a-z0-9]+.[a-z0-9]+\.*py", line): 
-        python_courses.append(sifile)
-        print(python_courses)
-
 python_course_paths = len(python_courses)
 ## We have provided unit tests in this file. To earn the full 500 points, you'll need to pass all of the tests and will need to have followed the instructions.
 ## Each class of the tests represents one "part" of the homework, and the points for each part are divided approx. equally between each of the tests.
